@@ -1,6 +1,7 @@
 
  sudo wget https://raw.githubusercontent.com/steveskalley/arcade-resources/master/wifi_on_off_script -O /usr/bin/wifi_on_off_script
  sudo chmod 755 /usr/bin/wifi_on_off_script
- crontab -l | grep -v wifi_on_off_script | { cat; echo "* * * * * /usr/bin/wifi_on_off_script"; } | crontab -
+ crontab -l | grep -v wifi_on_off_script | crontab -
+  crontab -l | { cat; echo "* * * * * /usr/bin/wifi_on_off_script"; } | crontab -
  
  echo "Installed Wifi Script in crontab"
