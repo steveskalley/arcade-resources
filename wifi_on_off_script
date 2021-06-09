@@ -1,0 +1,16 @@
+#!/bin/bash
+
+function check_eth {
+    set -o pipefail # optional.
+    /sbin/ethtool "$1" | grep -q "Link detected: yes"
+}
+
+if check_eth eth0; then
+    logger  "eth0 Online"
+    logger "Disabling wifi"
+    sudo ifconfig wlan0 down
+else
+    logger  "eth0 Not online"
+    logger "Enabling wifi"
+    sudo ifconfig wlan0 up
+fi
