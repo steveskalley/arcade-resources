@@ -1,57 +1,32 @@
 #!/bin/bash
 
-#Remove Base Config Items
-
-#Savestate
-ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "sed -i '/savestate_auto/d' /opt/retropie/configs/"$9"/retroarch.cfg") }'
-ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "sed -i '/config_save_on_exit/d' /opt/retropie/configs/"$9"/retroarch.cfg") }'
-
-#SaveLocation
-
-#Cheats
-ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "sed -i '/apply_cheats_after_/d' /opt/retropie/configs/"$9"/retroarch.cfg") }'
-
-#SettingsMenu
-ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "sed -i '/settings_show_recording/d' /opt/retropie/configs/"$9"/retroarch.cfg") }'
-ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "sed -i '/settings_show_achievements/d' /opt/retropie/configs/"$9"/retroarch.cfg") }'
-ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "sed -i '/settings_show_ai_service/d' /opt/retropie/configs/"$9"/retroarch.cfg") }'
-ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "sed -i '/settings_show_playlists/d' /opt/retropie/configs/"$9"/retroarch.cfg") }'
-ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "sed -i '/settings_show_power_management/d' /opt/retropie/configs/"$9"/retroarch.cfg") }'
-
-#QuickMenu
-ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "sed -i '/quick_menu_show_cheats/d' /opt/retropie/configs/"$9"/retroarch.cfg") }'
-ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "sed -i '/quick_menu_show_add_to_favorites/d' /opt/retropie/configs/"$9"/retroarch.cfg") }'
-ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "sed -i '/quick_menu_show_start_recording/d' /opt/retropie/configs/"$9"/retroarch.cfg") }'
-ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "sed -i '/quick_menu_show_start_streaming/d' /opt/retropie/configs/"$9"/retroarch.cfg") }'
-ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "sed -i '/quick_menu_show_streaming/d' /opt/retropie/configs/"$9"/retroarch.cfg") }'
-ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "sed -i '/quick_menu_show_cheats/d' /opt/retropie/configs/"$9"/retroarch.cfg") }'
-ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "sed -i '/quick_menu_show_download_thumbnails/d' /opt/retropie/configs/"$9"/retroarch.cfg") }'
-
-
 #Add Base Config Items
 #Savestate
-ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "echo \"savestate_auto_index = \\\"false\\\"\" >> /opt/retropie/configs/"$9"/retroarch.cfg") }'
-ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "echo \"savestate_auto_load = \\\"true\\\"\" >> /opt/retropie/configs/"$9"/retroarch.cfg") }'
-ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "echo \"savestate_auto_save = \\\"true\\\"\" >> /opt/retropie/configs/"$9"/retroarch.cfg") }'
-ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "echo \"config_save_on_exit = \\\"true\\\"\" >> /opt/retropie/configs/"$9"/retroarch.cfg") }'
+ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "sed -i '/savestate_auto_index/s/true/false/g' /opt/retropie/configs/"$9"/retroarch.cfg") }'
+ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "sed -i '/savestate_auto_load/s/false/true/g' /opt/retropie/configs/"$9"/retroarch.cfg") }'
+ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "sed -i '/savestate_auto_save/s/false/true/g' /opt/retropie/configs/"$9"/retroarch.cfg") }'
+ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "sed -i '/config_save_on_exit/s/false/true/g' /opt/retropie/configs/"$9"/retroarch.cfg") }'
 
 #Cheats
-ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "echo \"apply_cheats_after_load = \\\"true\\\"\" >> /opt/retropie/configs/"$9"/retroarch.cfg") }'
-ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "echo \"apply_cheats_after_toggle = \\\"true\\\"\" >> /opt/retropie/configs/"$9"/retroarch.cfg") }'
+ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "sed -i '/apply_cheats_after_load/s/false/true/g' /opt/retropie/configs/"$9"/retroarch.cfg") }'
+ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "sed -i '/apply_cheats_after_toggle/s/false/true/g' /opt/retropie/configs/"$9"/retroarch.cfg") }'
+
+
 
 #SettingsMenu
-ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "echo \"settings_show_recording = \\\"false\\\"\" >> /opt/retropie/configs/"$9"/retroarch.cfg") }'
-ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "echo \"settings_show_achievements = \\\"false\\\"\" >> /opt/retropie/configs/"$9"/retroarch.cfg") }'
-ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "echo \"settings_show_ai_service = \\\"false\\\"\" >> /opt/retropie/configs/"$9"/retroarch.cfg") }'
-ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "echo \"settings_show_playlists = \\\"false\\\"\" >> /opt/retropie/configs/"$9"/retroarch.cfg") }'
-ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "echo \"settings_show_power_management = \\\"false\\\"\" >> /opt/retropie/configs/"$9"/retroarch.cfg") }'
+ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "sed -i '/settings_show_recording/s/true/false/g' /opt/retropie/configs/"$9"/retroarch.cfg") }'
+ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "sed -i '/settings_show_achievements/s/true/false/g' /opt/retropie/configs/"$9"/retroarch.cfg") }'
+ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "sed -i '/settings_show_ai_service/s/true/false/g' /opt/retropie/configs/"$9"/retroarch.cfg") }'
+ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "sed -i '/settings_show_playlists/s/true/false/g' /opt/retropie/configs/"$9"/retroarch.cfg") }'
+ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "sed -i '/settings_show_power_management/s/true/false/g' /opt/retropie/configs/"$9"/retroarch.cfg") }'
 
 #QuickMenu
-ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "echo \"quick_menu_show_cheats = \\\"true\\\"\" >> /opt/retropie/configs/"$9"/retroarch.cfg") }'
-ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "echo \"quick_menu_show_add_to_favorites = \\\"false\\\"\" >> /opt/retropie/configs/"$9"/retroarch.cfg") }'
-ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "echo \"quick_menu_show_start_recording = \\\"false\\\"\" >> /opt/retropie/configs/"$9"/retroarch.cfg") }'
-ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "echo \"quick_menu_show_start_streaming = \\\"false\\\"\" >> /opt/retropie/configs/"$9"/retroarch.cfg") }'
-ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "echo \"quick_menu_show_streaming = \\\"false\\\"\" >> /opt/retropie/configs/"$9"/retroarch.cfg") }'
-ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "echo \"quick_menu_show_download_thumbnails = \\\"false\\\"\" >> /opt/retropie/configs/"$9"/retroarch.cfg") }'
+ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "sed -i '/quick_menu_show_cheats/s/false/true/g' /opt/retropie/configs/"$9"/retroarch.cfg") }'
+ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "sed -i '/quick_menu_show_add_to_favorites/s/true/false/g' /opt/retropie/configs/"$9"/retroarch.cfg") }'
+ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "sed -i '/quick_menu_show_start_recording/s/true/false/g' /opt/retropie/configs/"$9"/retroarch.cfg") }'
+ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "sed -i '/quick_menu_show_start_streaming/s/true/false/g' /opt/retropie/configs/"$9"/retroarch.cfg") }'
+ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "sed -i '/quick_menu_show_streaming/s/true/false/g' /opt/retropie/configs/"$9"/retroarch.cfg") }'
+ls /opt/retropie/configs/ -l | grep ^d | awk '{ system( "sed -i '/quick_menu_show_download_thumbnails/s/true/false/g' /opt/retropie/configs/"$9"/retroarch.cfg") }'
+
 
 
