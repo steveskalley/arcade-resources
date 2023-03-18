@@ -19,6 +19,7 @@ ls /opt/retropie/configs/*/retroarch.cfg -l | grep ^d | awk '{ system( "sed -i '
 ls /opt/retropie/configs/*/retroarch.cfg -l | grep ^d | awk '{ system( "sed -i '/settings_show_ai_service/s/true/false/g'  "$9) }'
 ls /opt/retropie/configs/*/retroarch.cfg -l | grep ^d | awk '{ system( "sed -i '/settings_show_playlists/s/true/false/g'  "$9) }'
 ls /opt/retropie/configs/*/retroarch.cfg -l | grep ^d | awk '{ system( "sed -i '/settings_show_power_management/s/true/false/g'  "$9) }'
+ls /opt/retropie/configs/*/retroarch.cfg -l | grep ^d | awk '{ system( "sed -i '/settings_show_user/s/true/false/g'  "$9) }'
 
 #QuickMenu
 ls /opt/retropie/configs/*/retroarch.cfg -l | grep ^d | awk '{ system( "sed -i '/quick_menu_show_cheats/s/false/true/g'  "$9) }'
