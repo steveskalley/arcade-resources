@@ -7,11 +7,11 @@ ls /opt/retropie/configs/*/retroarch.cfg -l |  awk '{ system( "sed -i '/savestat
 ls /opt/retropie/configs/*/retroarch.cfg -l |  awk '{ system( "sed -i '/savestate_auto_save/s/false/true/g'  "$9) }'
 ls /opt/retropie/configs/*/retroarch.cfg -l |  awk '{ system( "sed -i '/config_save_on_exit/s/false/true/g'  "$9) }'
 
-ls /opt/retropie/configs/ -l | grep ^d | awk '{ print "sed -i '/savestate_directory/d' /opt/retropie/configs/"$9"/retroarch.cfg" }'
-ls /opt/retropie/configs/ -l | grep ^d | awk '{ print "sed -i '/savefile_directory/d' /opt/retropie/configs/"$9"/retroarch.cfg" }'
+ls /opt/retropie/configs/*/retroarch.cfg -l | awk '{ system( "sed -i '/savestate_directory/d' "$9) }'
+ls /opt/retropie/configs/*/retroarch.cfg -l | awk '{ system( "sed -i '/savefile_directory/d'"$9) }'
 
-ls /opt/retropie/configs/ -l | grep ^d | awk '{ print "echo \"savestate_directory = \\\"/mnt/save_share\\\"\" >> /opt/retropie/configs/"$9"/retroarch.cfg" }'
-ls /opt/retropie/configs/ -l | grep ^d | awk '{ print "echo \"savefile_directory = \\\"/mnt/save_share\\\"\" >> /opt/retropie/configs/"$9"/retroarch.cfg" }'
+ls /opt/retropie/configs/*/retroarch.cfg -l | awk '{ system( "echo \"savestate_directory = \\\"/mnt/save_share\\\"\" >> "$9) }'
+ls /opt/retropie/configs/*/retroarch.cfg -l | awk '{ system( "echo \"savefile_directory = \\\"/mnt/save_share\\\"\" >> "$9) }'
 
 
 
